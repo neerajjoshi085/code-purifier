@@ -1,0 +1,136 @@
+/*
+ * Design tokens.
+ * The look is a proofreader's desk: warm paper, near-black ink, and one red-pen accent.
+ * Light is the "paper" theme, dark is the same desk under a lamp.
+ */
+:root,
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --bg: #141210;
+  --surface: #1b1814;
+  --surface-2: #221f1a;
+  --surface-3: #2c2822;
+  --border: #332e27;
+  --border-strong: #4b4438;
+  --text: #f0eadc;
+  --text-2: #c6beab;
+  --muted: #938b7a;
+
+  --accent: #ff8a5c;
+  --accent-strong: #ffa07a;
+  --accent-ink: #1c0d06;
+  --accent-soft: rgba(255, 138, 92, 0.13);
+  --mark: rgba(236, 196, 70, 0.3);
+
+  --used: #cfc7b3;
+  --safe: #86d3a2;
+  --potential: #ebb957;
+  --unknown: #a3b0e0;
+  --removed: #ff7f99;
+  --safe-soft: rgba(134, 211, 162, 0.14);
+  --potential-soft: rgba(235, 185, 87, 0.14);
+  --unknown-soft: rgba(163, 176, 224, 0.15);
+  --removed-soft: rgba(255, 127, 153, 0.13);
+  --added-soft: rgba(134, 211, 162, 0.12);
+
+  --code-bg: #100e0c;
+  --code-gutter: #6d6657;
+  --code-line-hover: rgba(255, 255, 255, 0.03);
+  --code-match: rgba(235, 185, 87, 0.35);
+  --code-match-active: rgba(235, 185, 87, 0.7);
+
+  --tok-kw: #d3a0e8;
+  --tok-str: #b1d985;
+  --tok-num: #ebb957;
+  --tok-com: #766e5f;
+  --tok-fn: #7dbbf2;
+  --tok-prop: #86d9c0;
+  --tok-sel: #f0cd80;
+  --tok-punc: #978f7d;
+  --tok-tag: #ff93a8;
+  --tok-attr: #efb878;
+  --tok-re: #ffa377;
+  --tok-at: #d3a0e8;
+  --tok-var: #98d2f5;
+
+  --shadow-sm: none;
+  --shadow-md: 0 24px 48px -28px rgba(0, 0, 0, 0.8);
+  --shadow-hard: 6px 6px 0 var(--surface-3);
+  --ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  --bg: #f5f1e8;
+  --surface: #fcfaf4;
+  --surface-2: #f1ede1;
+  --surface-3: #e8e3d4;
+  --border: #ded8c7;
+  --border-strong: #c5bda6;
+  --text: #1c1a15;
+  --text-2: #4a443a;
+  --muted: #736c5d;
+
+  --accent: #b83a1b;
+  --accent-strong: #9a2f14;
+  --accent-ink: #fff7ef;
+  --accent-soft: rgba(184, 58, 27, 0.09);
+  --mark: #f6df78;
+
+  --used: #3f3a30;
+  --safe: #2b7449;
+  --potential: #9c6209;
+  --unknown: #52608a;
+  --removed: #b0233f;
+  --safe-soft: rgba(43, 116, 73, 0.12);
+  --potential-soft: rgba(156, 98, 9, 0.12);
+  --unknown-soft: rgba(82, 96, 138, 0.12);
+  --removed-soft: rgba(176, 35, 63, 0.09);
+  --added-soft: rgba(43, 116, 73, 0.1);
+
+  --code-bg: #faf7ef;
+  --code-gutter: #a29b88;
+  --code-line-hover: rgba(0, 0, 0, 0.03);
+  --code-match: rgba(156, 98, 9, 0.28);
+  --code-match-active: rgba(156, 98, 9, 0.55);
+
+  --tok-kw: #7b3d9c;
+  --tok-str: #33702a;
+  --tok-num: #a05900;
+  --tok-com: #8f8878;
+  --tok-fn: #1d5ea8;
+  --tok-prop: #0a6c5f;
+  --tok-sel: #96560a;
+  --tok-punc: #6f695b;
+  --tok-tag: #b0233f;
+  --tok-attr: #93600c;
+  --tok-re: #bf4f1b;
+  --tok-at: #7b3d9c;
+  --tok-var: #1d5ea8;
+
+  --shadow-sm: none;
+  --shadow-md: 0 24px 48px -30px rgba(40, 32, 12, 0.4);
+  --shadow-hard: 6px 6px 0 var(--surface-3);
+  --ring: 0 0 0 2px var(--bg), 0 0 0 4px var(--accent);
+}
+
+:root {
+  --font-display: 'Newsreader Variable', 'Newsreader', 'Iowan Old Style', 'Palatino Linotype', Georgia, serif;
+  --font-ui: 'Instrument Sans Variable', 'Instrument Sans', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', 'SF Mono', Menlo, Consolas, monospace;
+  --radius-sm: 4px;
+  --radius: 8px;
+  --radius-lg: 14px;
+  --gutter: clamp(18px, 4vw, 44px);
+  --maxw: 1200px;
+  --header-h: 62px;
+  --line-h: 20px;
+  --pad: 26px; /* inner padding of cards */
+}
+@media (max-width: 520px) {
+  :root {
+    --pad: 18px;
+  }
+}

@@ -1,0 +1,7 @@
+# Not needed on Vercel: local test artefacts, build output (Vercel builds its own), tests, CLI.
+.scratch
+dist
+node_modules
+tests
+scripts
+*.log
