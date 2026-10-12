@@ -6,12 +6,13 @@
  * - The response is streamed (one JSON line at a time), which Vercel does by default for Node.js
  *   functions; streamed responses are not subject to the 4.5 MB response-size limit, so large
  *   sites (images, fonts) still come through.
- * - The function may run 120 s (vercel.json); the site download has a 90 s deadline inside that,
+ * - The function may run 60 s (vercel.json, allowed on every plan); the site download has a 55 s
+ *   deadline inside that,
  *   so a slow site ends with a clear error instead of the platform cutting the connection.
  */
 import { createApiHandler } from '../server/api.js';
 
-const handle = createApiHandler({ totalTimeoutMs: 90_000 });
+const handle = createApiHandler({ totalTimeoutMs: 55_000 });
 
 export default async function handler(req, res) {
   const handled = await handle(req, res);

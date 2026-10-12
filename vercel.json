@@ -6,7 +6,7 @@
   "outputDirectory": "dist",
   "functions": {
     "api/fetch-site.js": {
-      "maxDuration": 120
+      "maxDuration": 60
     }
   },
   "rewrites": [
