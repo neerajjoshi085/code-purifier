@@ -2,7 +2,7 @@ import { Component, lazy, Suspense } from 'react';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
 import Toast from './components/Toast.jsx';
-import { useHashRoute } from './hooks/useHashRoute.js';
+import { useRoute } from './hooks/useRoute.js';
 
 // Route-level code splitting: the workspace and the docs are separate chunks.
 const PurifierPage = lazy(() => import('./pages/PurifierPage.jsx'));
@@ -35,11 +35,20 @@ function PageFallback() {
   );
 }
 
+/** Keyboard "skip to content": move focus to the page body without adding #main to the address. */
+function skipToMain(e) {
+  const main = document.getElementById('main');
+  if (!main) return;
+  e.preventDefault();
+  main.setAttribute('tabindex', '-1');
+  main.focus();
+}
+
 export default function App() {
-  const route = useHashRoute();
+  const route = useRoute();
   return (
     <>
-      <a className="skip-link" href="#main">
+      <a className="skip-link" href="#main" onClick={skipToMain}>
         Skip to content
       </a>
       <Header route={route} />

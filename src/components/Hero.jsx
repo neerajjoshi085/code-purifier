@@ -44,7 +44,7 @@ function startWithAddress(e) {
 }
 
 function showHowItWorks(e) {
-  e.preventDefault(); // keep the #/css or #/js route in the address bar
+  e.preventDefault(); // smooth scroll, and keep the address bar clean
   document.getElementById('how-it-works')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 

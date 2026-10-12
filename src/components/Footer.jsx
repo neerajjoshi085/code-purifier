@@ -1,6 +1,7 @@
 import { memo } from 'react';
 import { PRIVACY_STATEMENT } from '../utils/constants.js';
 import { LogoMark } from './Icons.jsx';
+import { linkTo } from '../hooks/useRoute.js';
 
 function Footer() {
   return (
@@ -12,8 +13,12 @@ function Footer() {
             <span>Code Purifier</span>
           </div>
           <nav className="site-footer__links" aria-label="Footer">
-            <a href="#/css">CSS Purifier</a>
-            <a href="#/js">JS Purifier</a>
+            <a href="/css" onClick={linkTo('/css')}>
+              CSS Purifier
+            </a>
+            <a href="/js" onClick={linkTo('/js')}>
+              JS Purifier
+            </a>
           </nav>
           <p className="site-footer__note">{PRIVACY_STATEMENT}</p>
         </div>

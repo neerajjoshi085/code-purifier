@@ -3,7 +3,8 @@
  *
  *   npm run build && npm start          # PORT=8080 HOST=0.0.0.0 by default
  *
- * The app is a static single-page app with hash routing, so no URL rewriting is needed.
+ * The app is a single-page app with path routes (/css, /js, /docs): those paths are answered
+ * with index.html, and the app picks the page from the address.
  */
 import http from 'node:http';
 import fs from 'node:fs';
@@ -40,6 +41,7 @@ if (!fs.existsSync(path.join(root, 'index.html'))) {
 }
 
 const api = createApiHandler();
+const APP_ROUTES = new Set(['/css', '/js', '/docs']);
 
 const server = http.createServer(async (req, res) => {
   try {
@@ -52,6 +54,7 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     if (fs.existsSync(file) && fs.statSync(file).isDirectory()) file = path.join(file, 'index.html');
+    if (!fs.existsSync(file) && APP_ROUTES.has(pathname.replace(/\/+$/, ''))) file = path.join(root, 'index.html');
     if (!fs.existsSync(file)) {
       res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' }).end('Not found');
       return;

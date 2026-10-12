@@ -33,7 +33,7 @@ export default function DocsPage() {
           <ul>
             {TOC.map(([id, label]) => (
               <li key={id}>
-                <a href={`#/docs`} onClick={(e) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }}>
+                <a href={`#${id}`} onClick={(e) => { e.preventDefault(); document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }); }}>
                   {label}
                 </a>
               </li>
